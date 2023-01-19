@@ -1,0 +1,31 @@
+<ContentControl xmlns="https://github.com/avaloniaui"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				x:Class="PoolCalc.Controls.ValueSlider"
+				xmlns:controls="clr-namespace:PoolCalc.Controls">
+	<ContentControl.Styles>
+		<Style Selector="controls|ValueSlider">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<DockPanel>
+						<Grid ColumnDefinitions="*,*,*" DockPanel.Dock="Top">
+							<TextBlock Text="Min" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+							<TextBlock Text="{TemplateBinding Text}" HorizontalAlignment="Center" Grid.Column="1"/>
+							<TextBlock Text="Max" FontSize="12" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Grid.Column="2"/>
+						</Grid>
+
+
+						<Viewbox DockPanel.Dock="Top" Stretch="Fill" StretchDirection="DownOnly" Height="35">
+							<DockPanel DockPanel.Dock="Top">
+								<TextBox Text="{TemplateBinding MinValue}" DockPanel.Dock="Left" VerticalAlignment="Center"/>
+								<Slider Minimum="{TemplateBinding MinValue}" Maximum="{TemplateBinding MaxValue}" Width="100" Value="{Binding SliderValue}" Height="39" DockPanel.Dock="Left"  VerticalAlignment="Top" Padding="2,0,2,20"/>
+								<TextBox Text="{TemplateBinding MaxValue}" DockPanel.Dock="Left"  VerticalAlignment="Center"/>
+							</DockPanel>
+						</Viewbox>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+	</ContentControl.Styles>
+</ContentControl>

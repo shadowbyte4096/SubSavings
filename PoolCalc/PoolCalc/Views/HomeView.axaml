@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PoolCalc.ViewModels"
+		xmlns:c="using:PoolCalc.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="240" d:DesignHeight="480"
+        x:Class="PoolCalc.Views.HomeView">
+
+
+	<DockPanel Background="DarkGray">
+		<TextBlock Text="Home Page" HorizontalAlignment="Center" FontSize="22"
+			Margin="20" DockPanel.Dock="Top"/>
+		<c:ValueSlider Text="Increase" MinValue="{Binding MinValue}" MaxValue="{Binding MaxValue}" DockPanel.Dock="Top"/>
+		
+		<DockPanel Margin="15" DockPanel.Dock="Top">
+
+			<Grid ColumnDefinitions="2*,1*" DockPanel.Dock="Top">
+				<TextBlock Text="Initial Amount:"
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<TextBox Grid.Column="1" Text="{Binding InitialAmount}"
+					HorizontalAlignment="Stretch"/>
+			</Grid>
+			<Grid ColumnDefinitions="2*,1*" DockPanel.Dock="Top">
+				<TextBlock Text="Max: "
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<TextBox Grid.Column="1" Text="{Binding Max}"
+					HorizontalAlignment="Stretch"/>
+			</Grid>
+			<Grid ColumnDefinitions="2*,1*" DockPanel.Dock="Top">
+				<TextBlock Text="Increase: "
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<TextBox Grid.Column="1" Text="{Binding Increase}"
+					HorizontalAlignment="Stretch"/>
+			</Grid>
+			<Grid ColumnDefinitions="2*,1*" DockPanel.Dock="Top">
+				<TextBlock Text="Frequency(d): "
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<TextBox Grid.Column="1" Text="{Binding Frequency}"
+					HorizontalAlignment="Stretch"/>
+			</Grid>
+			<Grid ColumnDefinitions="2*,1*" RowDefinitions="*,*" DockPanel.Dock="Top">
+				<TextBlock Text="Date Started:"
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<Viewbox Grid.Row="2" Grid.ColumnSpan="2" MaxWidth="150">
+					<CalendarDatePicker SelectedDate="{Binding DateStarted}"/>
+				</Viewbox>
+
+			</Grid>
+
+			<Grid ColumnDefinitions="2*,1*" RowDefinitions="*,*" DockPanel.Dock="Top">
+				<TextBlock Text="Date Finished:"
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<Viewbox Grid.Row="2" Grid.ColumnSpan="2" MaxWidth="150">
+					<CalendarDatePicker SelectedDate="{Binding DateFinished}"/>
+				</Viewbox>
+			</Grid>
+			
+		</DockPanel>
+
+		<DockPanel>
+			<Grid ColumnDefinitions="2*,1*" RowDefinitions="*,*" DockPanel.Dock="Top">
+				<TextBlock Text="Change:"
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<ComboBox Grid.Column="1" Items="{Binding types}" SelectedItem="{Binding VariableToChange}"/>
+			</Grid>
+			<Grid ColumnDefinitions="2*,1*" RowDefinitions="*,*" DockPanel.Dock="Top">
+				<TextBlock Text="Find:"
+					HorizontalAlignment="Right" VerticalAlignment="Center"/>
+				<ComboBox Grid.Column="1" Items="{Binding VariableTypesForFind}" SelectedItem="{Binding VariableToFind}"/>
+			</Grid>
+		</DockPanel>
+	</DockPanel>
+
+</UserControl>
